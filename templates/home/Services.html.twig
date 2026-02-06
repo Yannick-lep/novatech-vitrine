@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+<h1>Nos services</h1>
+
+{% for service in services %}
+<article style="border:1px solid #ddd; padding:12px; margin:12px 0; border-radius:8px;">
+      <h2 style="margin:0 0 6px 0;">{{ service.name }}</h2>
+
+      {% if service.description %}
+      <p style="margin:0 0 6px 0;">{{ service.description }}</p>
+      {% endif %}
+
+      <small>Créé le {{ service.createdAt|date('d:m/Y H:i') }}</small>
+      </article>
+      {% else %}
+      <p>Aucun service disponible pour le moment.</p>
+      {% endfor %}
+      {% endblock %}
